@@ -1,0 +1,414 @@
+
+body, div, header, span, h1, h2, h3, footer, nav, img, p, button, ul, li {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* hamburger menu displayed on phone screen
+*/
+label{
+  margin: 0 40 0 0;
+  font-size: 28px;
+  line-height: 70px;
+  display:none;
+}
+
+#toggle{
+  display: none;
+}
+/*Everything that appears before pressing enter
+*/
+#overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: powderblue;
+}
+
+/*the llamas gif part
+*/
+#overlay .overlay-left {
+  position: fixed;
+  width: 27%;
+  height: 100%;
+}
+/*the part that holds the welcome message
+*/
+#overlay .overlay-right {
+  position: fixed;
+  width: 77.5%;
+  height: 100%;
+  left: 25%;
+  display: flex;
+  align-items: center;
+  overflow: scroll;
+}
+
+#overlay .overlay-right > div {
+  margin: 0 95px 0 85px;
+  font-family: 'Open Sans', sans-serif;
+  color:white;
+
+}
+
+#overlay .overlay-right > div h1 {
+  margin: 30px 0 40px 0;
+  font-size: 40px;
+  max-width: 60%;
+}
+
+#overlay .overlay-right > div p {
+  font-size: 22px;
+  line-height: 1.67;
+  margin-bottom: 90px;
+  max-width: 80%;
+}
+
+/*Enter button
+*/
+#overlay .overlay-right > div .enter {
+  display: flex;
+  justify-content: space-between;
+}
+
+#overlay .overlay-right > div .enter button {
+  border: none;
+  width: 200px;
+  height: 58px;
+  text-transform: uppercase;
+  font-size: 16px;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  background-color: black;
+  border-radius: 25px;
+  padding:20px 40px 20px 40px;
+}
+
+/*On phone screen the left overlay part with llamas gifs disappears and the whole screen has the right overlay part with welcome message
+*/
+@media(max-width: 600px){
+    #overlay .overlay-left {
+    width: 0%;
+    }
+
+    #overlay .overlay-right {
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      overflow: scroll;
+      text-align: center;
+      line-height: 1.27;
+    }
+
+    #overlay .overlay-right > div {
+      margin: 0 0 0 0;
+      font-family: 'Open Sans', sans-serif;
+      color:white;
+      max-width: 100%;
+
+    }
+
+    #overlay .overlay-right > div p {
+      font-size: 22px;
+      line-height: 1.67;
+      margin-bottom: 30px;
+      margin-left: 10px;
+      max-width: 50%;
+      align-items: center;
+
+    }
+
+}
+
+/*Sidebar holding trending questions
+*/
+.sidebar {
+  position: fixed;
+  width: 22.5%;
+  height: 100%;
+  background-color: #563D33;
+  overflow: scroll;
+}
+
+
+.sidebar header {
+  height: 172px;
+  margin: 30px 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.sidebar header h1 {
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  color: powderblue;
+  text-transform: uppercase;
+  line-height: 1.5;
+  margin-top: 5px;
+  padding: 10px;
+}
+
+
+.sidebar #trending {
+  color: white;
+  padding-bottom: 60px;
+}
+
+
+.sidebar #trending h2 {
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  padding: 30px 35px 25px 27px;
+  text-align: center;
+}
+
+/*Each trending question
+*/
+.sidebar #trending p {
+  position: relative;
+  padding: 12px 35px;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.8;
+  text-transform: uppercase;
+}
+
+.sidebar #trending p:hover {
+  background-color: powderblue;
+  color: black;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  border-radius: 25px;
+}
+/*Holds the chatbox
+*/
+#main {
+  position: fixed;
+  overflow-y: auto;
+  right: 0;
+  width: 77.5%;
+  height: calc(100% - 66px);
+  background: #E8868B;
+}
+
+#main #chatbot-hi {
+  padding: 60px 30px 20px 30px;
+  background-color: #E8868B;
+  width: 100%;
+}
+
+#main #chatbot-hi div {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+/*Cancel button that takes you back to welcome screen
+*/
+#main #chatbot-hi div img {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  cursor: pointer;
+  z-index: 50;
+}
+
+#main #chatbot-hi h1 {
+  font-size: 28px;
+  font-family: "Courier New";
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#main #chatbot-hi p {
+  line-height: 30px;
+  font-size: 16px;
+}
+
+#main #typing, #main #searching {
+  width: 100%;
+  display: flex;
+  padding: 0 20px 15px 30px;
+
+}
+
+#main #typing > div, #main #searching > div {
+  padding: 0 25px;
+  display: flex;
+  justify-content: space-around;
+  width: 80px;
+  height: 50px;
+  align-items: center;
+}
+
+#main #typing > div div, #main #searching > div div {
+  height: 4px;
+  width: 4px;
+}
+
+#main #typing div {
+  background-color: powderblue;
+  border-radius: 25px;
+}
+
+#main #typing div div {
+  background-color: black;
+}
+
+#main #searching div {
+  background-color: #f0f0f0;
+    border-radius: 25px;
+}
+
+#main #searching div div {
+  background-color: #818181;
+
+}
+
+#main .msg-right {
+  justify-content: flex-end;
+}
+
+
+#main .reply, #main .question {
+  width: 100%;
+  display: flex;
+  padding: 0 30px 16px 30px;
+  z-index: 1;
+}
+
+#main .reply span, #main .question span {
+  padding: 15px;
+  font-size: 14px;
+font-family: 'Open Sans', sans-serif;
+  color: #666666;
+}
+
+#main .reply p, #main .question p {
+  font-size: 14px;
+font-family: 'Open Sans', sans-serif;
+  line-height: 1.45em;
+  max-width: 646px;
+}
+
+#main .reply p {
+  padding: 15px 25px;
+  background-color: #f0f0f0;
+  position: relative;
+  border-radius: 25px;
+}
+
+#main .question p {
+  padding: 15px 35px;
+  background-color: powderblue;
+  color: black;
+  border-radius: 25px;
+}
+
+
+.search-area {
+  position: fixed;
+  background-color: white;
+  right: 0;
+  width: 77.5%;
+  height: 66px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  border-top: 1px solid black;
+  bottom: 0;
+}
+
+.search-area > div {
+  display: flex;
+  align-items: center;
+}
+
+.search-area > div input {
+
+  -webkit-appearance: textfield;
+  margin-left: 10px;
+  width: calc( 77.5vw - 60px - 100px );
+  border: none;
+  outline: none;
+  height: 65px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  background: transparent;
+}
+
+.search-area > div #input-user {
+  position: relative;
+}
+
+.search-area > div div {
+  position: relative;
+}
+
+.llama {
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  background: url("../icons/giphy.gif");
+}
+
+/*converts the sidebar having trending questions into a hamburger menu on mobile screen
+*/
+@media(max-width: 600px){
+    label{
+      display: block;
+      cursor: pointer;
+      width: 100%;
+      z-index: 1000;
+      background-color: powderblue;
+    }
+
+    .sidebar{
+      text-align: center;
+      width:100%;
+      z-index: 2;
+      display: none;
+    }
+
+    .sidebar #trending p {
+      display: block;
+      border-bottom:  1px solid #EAEAEB;
+      margin: 0;
+    }
+
+    #main{
+      width:100%;
+      height: 82%;
+    }
+
+    .search-area{
+      width: 100%;
+    }
+
+
+    #main #chatbot-hi div img{
+      top:3%;
+      right:2%;
+    }
+
+    #toggle:checked + .sidebar{
+      display: block;
+    }
+
+
+}
+
+
+
+
+
